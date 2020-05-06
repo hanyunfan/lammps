@@ -9,4 +9,6 @@ docker run -it --gpus=all  --net=host --uts=host --ulimit stack=67108864 --ulimi
 Run the install_lammps.sh script inside the docker
 
 #run with less GPUs in the nodes
-Need to modify the NTASK_SLRUM parameters in the runme.sh script
+Need to modify the NTASK_SLRUM parameters in the runme.sh script or use -e command to pass it into docker
+
+
