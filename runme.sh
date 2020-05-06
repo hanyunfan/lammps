@@ -19,22 +19,6 @@ fi
 
 echo $OMP_NUM_THREADS
 
-#SLURM_NTASKS=8
-
-#export CUDA_MPS_PIPE_DIRECTORY=/tmp/nvidia-mps
-#export CUDA_MPS_LOG_DIRECTORY=/tmp/nvidia-log
-
-#export OMP_NUM_THREADS=9
-#export GOMP_CPU_AFFINITY=0-8
-
-#DATETIME=`hostname`.`date +"%m%d.%H%M%S"`
-#mkdir results/lammps-results-$DATETIME
-DATETIME=`date +"%m%d.%H%M%S"`
-TEST_NAME="$1"_"$SLURM_NTASKS"x_$2
-OUTPUT_DIR=./results/$TEST_NAME-`hostname`-$DATETIME
-mkdir -p ./results
-
-
 if [ -z "$SLURM_NTASKS" ];
 then
 	SLURM_NTASKS=`lspci | grep NVIDIA | wc -l`;
@@ -55,6 +39,22 @@ elif [ "$SLURM_NTASKS" -eq 4 ]
 then
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 fi
+
+#SLURM_NTASKS=8
+
+#export CUDA_MPS_PIPE_DIRECTORY=/tmp/nvidia-mps
+#export CUDA_MPS_LOG_DIRECTORY=/tmp/nvidia-log
+
+#export OMP_NUM_THREADS=9
+#export GOMP_CPU_AFFINITY=0-8
+
+#DATETIME=`hostname`.`date +"%m%d.%H%M%S"`
+#mkdir results/lammps-results-$DATETIME
+DATETIME=`date +"%m%d.%H%M%S"`
+TEST_NAME="$1"_"$SLURM_NTASKS"x_$2
+OUTPUT_DIR=./results/$TEST_NAME-`hostname`-$DATETIME
+mkdir -p ./results
+
 
 
 
