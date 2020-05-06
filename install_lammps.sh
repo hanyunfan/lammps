@@ -13,13 +13,13 @@ makefile_original="MAKE/OPTIONS/Makefile.kokkos_cuda_mpi"
 if lspci | grep NVIDIA | grep TU
 then
 #sed -i "/Kepler35/s/Kepler35/Turing75/" $makefile_original
-sed "/KOKKOS_ARCH/s|= .*|= Turing75|" MAKE/OPTIONS/Makefile.kokkos_cuda_mpi
+sed -i "/KOKKOS_ARCH/s|= .*|= Turing75|" MAKE/OPTIONS/Makefile.kokkos_cuda_mpi
 fi
 
 if lspci | grep NVIDIA | grep GV
 then
 #sed -i "/Kepler35/s/Kepler35/Volta70/" $makefile_original
-sed "/KOKKOS_ARCH/s|= .*|= Volta70|" MAKE/OPTIONS/Makefile.kokkos_cuda_mpi
+sed -i "/KOKKOS_ARCH/s|= .*|= Volta70|" MAKE/OPTIONS/Makefile.kokkos_cuda_mpi
 fi
 
 # select desired LAMMPS packages
