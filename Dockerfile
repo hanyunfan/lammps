@@ -38,3 +38,5 @@ RUN \
 #run and install scripts
 COPY runme.sh .
 COPY install_lammps.sh .
+
+#ENTRYPOINT [“./install_lammps.sh”]
